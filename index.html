@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finances</title>
+</head>
+
+<body>
+  <h1 style="text-align:center;"> Financial Analysis: Profit or Loss?✨! </h1>
+  <script src="index.js"></script>
+
+  <script>
+    // q1: The total number of months would be the length of the array 'finances'
+    var totalMonths = finances.length;
+    console.log("Total Months: ", totalMonths);
+
+    // q2: The net total amount of Profit/Losses
+    var netTotal = finances.reduce(function (accumulator, current) {
+      return accumulator + current[1];
+    }, 0);
+    console.log("Total: $", netTotal.toFixed(2));
+
+    // q3: The average of the changes in Profit/Losses
+    var changes = [];
+    for (var i = 1; i < finances.length; i++) {
+      changes.push(finances[i][1] - finances[i - 1][1]);
+    }
+    var averageChange = changes.reduce(function (sum, change) {
+      return sum + change;
+    }, 0) / changes.length;
+    console.log("Average Change: $", averageChange.toFixed(2));
+
+    // q4: The greatest increase in Profit/Losses
+    var greatestIncrease = {
+      date: "",
+      amount: 0
+    };
+    for (var i = 1; i < finances.length; i++) {
+      var date = finances[i][0];
+      var change = finances[i][1] - finances[i - 1][1];
+      if (change > greatestIncrease.amount) {
+        greatestIncrease.date = date;
+        greatestIncrease.amount = change;
+      }
+    }
+    console.log("Greatest Increase in Profits/Losses: ", greatestIncrease.date, "($", greatestIncrease.amount.toFixed(2), ")");
+
+    // q5: The greatest decrease in Profit/Losses
+    var greatestDecrease = {
+      date: "",
+      amount: 0
+    };
+    for (var i = 1; i < finances.length; i++) {
+      var date = finances[i][0];
+      var change = finances[i][1] - finances[i - 1][1];
+      if (change < greatestDecrease.amount) {
+        greatestDecrease.date = date;
+        greatestDecrease.amount = change;
+      }
+    }
+    console.log("Greatest Decrease in Profits/Losses: ", greatestDecrease.date, "($", greatestDecrease.amount.toFixed(2), ")");
+  </script>
+
+</body>
+
+</html>
