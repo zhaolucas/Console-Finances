@@ -23,7 +23,7 @@ When opened, resulting analysis should look similar to the following:
   Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
   ```
 
-Link to the deployed application: https://zhaolucas.github.io/
+Link to the deployed application: https://zhaolucas.github.io/Console-Finances/
 
 ## Table of Contents
 
